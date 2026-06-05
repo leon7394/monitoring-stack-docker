@@ -1,0 +1,7 @@
+# Ignore Data Volumes
+prometheus_data/
+grafana_data/
+alertmanager/
+
+# Ignore OS generated files
+.DS_Store

@@ -1,0 +1,11 @@
+groups:
+  - name: disk_alerts
+    rules:
+      - alert: DiskSpaceCritical
+        expr: ( (node_filesystem_size_bytes - node_filesystem_free_bytes) / node_filesystem_size_bytes * 100) > 90
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Disk space critical on {{ $labels.instance }}"
+          description: "partition {{ $labels.mountpoint }} is {{ $value }}% full."
